@@ -3,7 +3,8 @@ import { Text, StyleSheet } from 'react-native'
 
 const WelcomeScreen = () => {
 
-    return <Text>This is the components screen</Text>
+    return (<Text>This is the components screen</Text>);
+
 }
 
 
