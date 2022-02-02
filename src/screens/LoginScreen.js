@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { Text, StyleSheet, View, TextInput, TouchableOpacity, Keyboard } from 'react-native'
 
+const [userName, setUserName] = useState('');
+const [password, setPassword] = useState('');
+
 const LoginScreen = () => {
+
 
     return (
             <View>
@@ -12,20 +16,37 @@ const LoginScreen = () => {
                 style={styles.input}
                 placeholder="Username"
                 onBlur={Keyboard.dismiss}
+                onChangeText={(event) => {
+                    setUserName(event)
+                }}
                 />
                 <TextInput
                 style={styles.input}
                 placeholder="Password"
                 onBlur={Keyboard.dismiss}
+                onChangeText={(event) => {
+                    setPassword(event)
+                }}
                 />
                 <TouchableOpacity
-                    style={styles.saveButton}>
+                    style={styles.saveButton}
+                    onPress={() => {
+                        handleLoginSubmit()
+                    } }>
                     <Text style={styles.saveButtonText}>Login</Text>
                 </TouchableOpacity>
             </View>
         ); 
     
 }
+
+function handleLoginSubmit() {
+    console.log("my something function");
+    console.log("username" + userName);
+    console.log("password" + password);
+}
+
+
 
 const styles = StyleSheet.create({
     input: {
