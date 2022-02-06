@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Text, StyleSheet, View, TextInput, TouchableOpacity, Keyboard } from 'react-native'
+import getEnvVars from './../../environment';
+const { apiUrl } = getEnvVars();
 
 
 
@@ -12,6 +14,9 @@ const LoginScreen = () => {
             <View>
                 <Text style={styles.textLabel}>
                     Please Login
+                </Text>
+                <Text>
+                    This is my api url = {apiUrl}
                 </Text>
                 <TextInput
                 style={styles.input}
