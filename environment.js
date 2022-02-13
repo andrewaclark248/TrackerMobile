@@ -12,7 +12,7 @@ const localhost =
     return { envName: 'PRODUCTION', apiUrl: 'productionURL.com'}; // prod env settings
   } else if (Updates.releaseChannel.startsWith('staging')) {
     // matches staging-v1, staging-v2
-    return { envName: 'STAGING', apiUrl: 'stagingURL.com' }; // stage env settings
+    return { envName: 'STAGING', apiUrl: 'stagingURL2222.com' }; // stage env settings
   } else {
     // assume any other release channel is development
     return { envName: 'DEVELOPMENT', apiUrl: 'localhost:3000'}; // dev env settings

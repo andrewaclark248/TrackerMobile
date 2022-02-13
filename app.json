@@ -20,7 +20,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "Build1-2-12-22"
+      "bundleIdentifier": "Build1-2-12-22-v1"
     },
     "android": {
       "adaptiveIcon": {

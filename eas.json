@@ -1,15 +1,10 @@
 {
   "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal"
+    "prod": {
+      "releaseChannel": "prod-v1"
     },
-    "preview": {
-      "distribution": "internal"
-    },
-    "production": {}
-  },
-  "cli": {
-    "version": ">= 0.47.0"
+    "staging": {
+      "releaseChannel": "staging"
+    }
   }
 }
