@@ -12,10 +12,14 @@ const localhost =
     return { envName: 'PRODUCTION', apiUrl: 'productionURL.com'}; // prod env settings
   } else if (Updates.releaseChannel.startsWith('staging')) {
     // matches staging-v1, staging-v2
-    return { envName: 'STAGING', apiUrl: 'stagingURL2222.com' }; // stage env settings
+    return { envName: 'STAGING', 
+            apiUrl: 'stagingURL2222.com',
+            loginURL: 'localhost:3000/api/v1/authenticate' }; // stage env settings
   } else {
     // assume any other release channel is development
-    return { envName: 'DEVELOPMENT', apiUrl: 'localhost:3000'}; // dev env settings
+    return { envName: 'DEVELOPMENT', 
+            apiUrl: 'localhost:3000/home/api/someurl',
+            loginURL: 'http://application-mock-server.loca.lt/api/authenticate'}; // dev env settings
   }
 }
 

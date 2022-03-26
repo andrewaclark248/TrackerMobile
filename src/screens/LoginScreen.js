@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Text, StyleSheet, View, TextInput, TouchableOpacity, Keyboard } from 'react-native'
 import getEnvVars from './../../environment';
-const { apiUrl } = getEnvVars();
+const { apiUrl, loginURL } = getEnvVars();
+import axios from 'axios';
 
 
 
-const LoginScreen = () => {
+
+const LoginScreen = ({ navigation }) => {
 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
@@ -37,8 +39,8 @@ const LoginScreen = () => {
                 <TouchableOpacity
                     style={styles.saveButton}
                     onPress={() => {
-                        handleLoginSubmit(userName, password)
-                    } }>
+                        handleLoginSubmit(userName, password, navigation);
+                        } }>
                     <Text style={styles.saveButtonText}>Login</Text>
                 </TouchableOpacity>
             </View>
@@ -46,12 +48,44 @@ const LoginScreen = () => {
     
 }
 
-function handleLoginSubmit(userName, password) {
-    console.log("my something function");
-    console.log("username" + userName);
-    console.log("password" + password);
+function handleLoginSubmit(userName, password, navigation) {//(userName, password) {
+    //var result = await axios.post(loginURL,{userName: userName, password: password}).then(function (response) { console.log(response) }).catch(()=> {console.log("some log error")})
+    var result = axios
+      .post(loginURL, {
+        userName: userName,
+        password: password
+      })
+      .then((response) => {
+        loginResult(response, navigation);
+      });
 }
 
+
+function loginResult(response, navigation)
+{
+    if (response.data["success"])
+    {
+        console.log("login sucess")
+        navigation.navigate('Welcome')
+    }
+    else {
+        console.log("login failed")
+    }
+}
+
+
+
+_storeData = async (response) => {
+    console.log(response);
+    try {
+      await AsyncStorage.setItem(
+        'token',
+        'I like to save it.'
+      );
+    } catch (error) {
+      // Error saving data
+    }
+  };
 
 
 const styles = StyleSheet.create({
