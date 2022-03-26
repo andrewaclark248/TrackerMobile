@@ -14,7 +14,7 @@ const localhost =
     // matches staging-v1, staging-v2
     return { envName: 'STAGING', 
             apiUrl: 'http://trackerv1.com/',
-            loginURL: 'localhost:3000/api/v1/authenticate' }; // stage env settings
+            loginURL: 'http://trackerv1.com/' }; // stage env settings
   } else {
     // assume any other release channel is development
     return { envName: 'DEVELOPMENT', 
