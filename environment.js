@@ -13,7 +13,7 @@ const localhost =
   } else if (Updates.releaseChannel.startsWith('staging')) {
     // matches staging-v1, staging-v2
     return { envName: 'STAGING', 
-            apiUrl: 'stagingURL2222.com',
+            apiUrl: 'http://trackerv1.com/',
             loginURL: 'localhost:3000/api/v1/authenticate' }; // stage env settings
   } else {
     // assume any other release channel is development
