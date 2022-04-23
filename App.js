@@ -1,11 +1,14 @@
 import LoginScreen from './src/screens/LoginScreen';
+import WelcomeScreen from './src/screens/WelcomeScreen';
+
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
 
 const navigator = createStackNavigator(
   {
-    Login: LoginScreen
+    Login: LoginScreen,
+    Welcome: WelcomeScreen
   },
   {
     initialRouteName: 'Login',
