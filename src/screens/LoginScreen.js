@@ -3,7 +3,7 @@ import { Text, StyleSheet, View, TextInput, TouchableOpacity, Keyboard } from 'r
 import getEnvVars from './../../environment';
 const { apiUrl, loginURL } = getEnvVars();
 import axios from 'axios';
-
+import AsyncStorage  from '@react-native-async-storage/async-storage';
 
 
 
@@ -50,7 +50,7 @@ const LoginScreen = ({ navigation }) => {
 
 function handleLoginSubmit(userName, password, navigation) {//(userName, password) {
     //var result = await axios.post(loginURL,{userName: userName, password: password}).then(function (response) { console.log(response) }).catch(()=> {console.log("some log error")})
-    var result = axios
+    var result =  axios
       .post(loginURL, {
         userName: userName,
         password: password
@@ -61,11 +61,11 @@ function handleLoginSubmit(userName, password, navigation) {//(userName, passwor
 }
 
 
-function loginResult(response, navigation)
+async function loginResult(response, navigation)
 {
     if (response.data["success"])
     {
-        console.log("login sucess")
+        await AsyncStorage.setItem("token", "myjwttokenisfinallystored").catch(error => console.log("async error: "+error));
         navigation.navigate('Welcome')
     }
     else {

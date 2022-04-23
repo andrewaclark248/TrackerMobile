@@ -14,12 +14,12 @@ const localhost =
     // matches staging-v1, staging-v2
     return { envName: 'STAGING', 
             apiUrl: 'http://trackerv1.com/',
-            loginURL: 'http://trackerv1.com/' }; // stage env settings
+            loginURL: 'http://trackerv1.com/api/v1/authenticate' }; // stage env settings
   } else {
     // assume any other release channel is development
     return { envName: 'DEVELOPMENT', 
             apiUrl: 'localhost:3000/home/api/someurl',
-            loginURL: 'http://application-mock-server.loca.lt/api/authenticate'}; // dev env settings
+            loginURL: 'http://tracker-app-domain.ngrok.io/api/authenticate'}; // dev env settings
   }
 }
 
