@@ -19,10 +19,4 @@ const navigator = createStackNavigator(
   }
 );
 
-const App = createAppContainer(navigator);
-
-export default () => {
-  return <TrackerProvider>
-    <App/>
-  </TrackerProvider>
-};
+export default createAppContainer(navigator);
